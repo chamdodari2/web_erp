@@ -27,4 +27,11 @@ public class TitleService {
 	public Title showTitle(Title title) {
 		return dao.selectTitleByNo(title);
 	}
+	public void delTitle(int title) {   //삭제, 없데이트는 리턴해줄게 없기때문에 return 빼준당. void!!!! 
+		dao.deleteTitle(title);
+	}
+
+	public void updateTitle(Title title) {
+		dao.updateTitle(title);
+	}
 }

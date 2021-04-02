@@ -22,6 +22,10 @@ ${list }
 	</tr>    
 	</c:forEach>
 	</tbody>
+	<tfoot>
+		<tr><td dolspan="2"><a href="titleInput.jsp">직책 추가</a></td></tr>
+	</tfoot>
 	</table>
+	
 </body>
 </html>
