@@ -15,7 +15,7 @@ import web_erp.service.TitleService;
 @WebServlet("/TitleUpdateServlet")
 public class TitleUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private TitleService service;
+	private TitleService service;//타이틀 서비스에 만들어놓은 메소드 쓰겠다
 
     public TitleUpdateServlet() {
     	service= new TitleService();
@@ -24,9 +24,9 @@ public class TitleUpdateServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
+		response.setContentType("text/html;charset=UTF-8"); //한글 안깨지게 전달받고싶엉
 		
-		int no =Integer.parseInt(request.getParameter("tNo").trim());
+		int no =Integer.parseInt(request.getParameter("tNo").trim()); //tNo에  들어있는 값 전달받기
 		String name = request.getParameter("tName");
 		
 		Title title = new Title(no,name);

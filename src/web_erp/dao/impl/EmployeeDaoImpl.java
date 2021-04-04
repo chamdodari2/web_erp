@@ -81,7 +81,7 @@ public class EmployeeDaoImpl implements EmployeeDao {// EmployeeDao를 구현하
 				manager.setEmpName(rs.getNString("manager_name"));
 			}catch (SQLException e ) {}
 			try {
-				dept.setDeptName(rs.getString("dept_name"));
+				dept.setDeptName(rs.getString("deptname"));///////////////////////////////////////
 			}catch(SQLException e) {}
 			try {
 				 dept.setFloor(rs.getInt("floor"));

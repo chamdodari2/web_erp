@@ -74,7 +74,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	}
 
 	@Override
-	public int intsertDepartment(Department department) {
+	public int insertDepartment(Department department) {
 		String sql = "insert into department values(?,?,?)";
 		try (
 					PreparedStatement pstmt = con.prepareStatement(sql)){

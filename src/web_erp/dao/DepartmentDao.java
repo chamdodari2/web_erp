@@ -10,7 +10,7 @@ public interface DepartmentDao {
 	Department selectDepartmentByNo(Department department);
 	List<Employee> selectEmplist(Department dept);
 	
-	int intsertDepartment(Department department); 
+	int insertDepartment(Department department); 
 	int updateDepartment(Department department); 
 	int deleteDepartment(int deptNo); 
 //	Department selectEmplist(Department department);

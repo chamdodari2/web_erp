@@ -9,31 +9,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web_erp.dto.Department;
-import web_erp.service.DepartmentService;
+import web_erp.dto.Employee;
+import web_erp.service.EmployeeService;
 
 
-@WebServlet("/DeptListServlet")
-public class DeptListServlet extends HttpServlet {
+@WebServlet("/EmpListServlet")
+public class EmpListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private DepartmentService service;
+	private EmployeeService service; 
+ 
+    public EmpListServlet() {
+    	service =new EmployeeService();
+    }
 
-
-	public DeptListServlet() {
-		service= new DepartmentService();
-	}
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		System.out.println("test");
-		List<Department> list = service.showDepartments();
+		System.out.println("EmpListservlet 테스트중");
+		List<Employee> list =service.showEmployees();
 		list.stream().forEach(System.out::println);
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("departmentList.jsp").forward(request, response);
+		request.setAttribute("list",list);
+		request.getRequestDispatcher("employeeList.jsp").forward(request, response);
+		
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

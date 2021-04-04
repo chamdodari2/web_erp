@@ -53,6 +53,9 @@ public class Title {
 	}
 
 
+	public String toString2() {
+		return  String.format("%s(%d) ",name,no);
+	}
 	
 
 }

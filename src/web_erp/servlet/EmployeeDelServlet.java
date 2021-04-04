@@ -1,7 +1,6 @@
 package web_erp.servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,31 +8,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web_erp.dto.Department;
-import web_erp.service.DepartmentService;
+import web_erp.dto.Employee;
+import web_erp.service.EmployeeService;
 
 
-@WebServlet("/DeptListServlet")
-public class DeptListServlet extends HttpServlet {
+@WebServlet("/EmployeeDelServlet")
+public class EmployeeDelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private DepartmentService service;
-
-
-	public DeptListServlet() {
-		service= new DepartmentService();
-	}
+    private EmployeeService service;
+  
+    public EmployeeDelServlet() {
+       service = new EmployeeService();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		System.out.println("test");
-		List<Department> list = service.showDepartments();
-		list.stream().forEach(System.out::println);
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("departmentList.jsp").forward(request, response);
+		int no = Integer.parseInt(request.getParameter("empNo").trim());
+		service.delEmployee(new Employee(no));
+		response.sendRedirect("EmpListServlet");
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

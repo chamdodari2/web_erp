@@ -58,6 +58,8 @@ public class Department {
 		return emplist;
 	}
 
-
+	public String toString2() {
+		return String.format("%s(%d)",deptName,deptNo);
+	}
 	
 }
