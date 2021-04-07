@@ -27,6 +27,7 @@ public class TitleListServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
+		
 		List<Title> list = service.showTitles();
 		list.stream().forEach(System.out::println);
 		request.setAttribute("list", list);
